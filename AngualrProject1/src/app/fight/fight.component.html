@@ -1,0 +1,54 @@
+
+<div id="app">
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" 
+                [ngStyle]="{width : PlayerPower + '%' }"
+                 style="background-color: darkblue; 
+                 margin: 0;
+                  color: rgb(238, 14, 14);">
+                  {{PlayerPower}}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">ElSODS</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center"
+                [ngStyle] = " {width : MonsterPower + '%' }" 
+                style="background-color: darkblue;
+                 margin: 0;
+                  color: rgb(238, 14, 14);">
+                     {{MonsterPower}}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="row controls" *ngIf = "fightIsRunning === false; else noRunning" >
+        <div class="small-12 columns">
+            <button id="start-game" (click)="startNewGame()">START NEW GAME</button>
+        </div>
+    </section>
+    <ng-template #noRunning>
+      <section class="row controls">
+        <div class="small-12 columns">
+            <button id="attack" (click)="attack()">ATTACK</button>
+            <button id="special-attack" (click)="specialAttack()">SPECIAL ATTACK</button>
+            <button id="heal" (click)="heal()">HEAL</button>
+            <button id="give-up" (click)="giveUp()" >GIVE UP</button>
+        </div>  
+      </section>
+  </ng-template> 
+    <section class="row log" *ngIf="turns.length > 0">
+        <div class="small-12 columns">
+            <ul>
+                <li *ngFor="let turn of turns"
+                  [ngClass]="{'player-turn':turn.isPlayer , 'player-turn':!turn.isPlayer}">
+                    {{turn.text}}
+                </li>
+            </ul>
+        </div>
+    </section>
+</div>
