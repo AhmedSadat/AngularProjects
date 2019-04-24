@@ -11,9 +11,8 @@ export class FightComponent implements OnInit {
 
   ngOnInit() {
     alert( " You Will Play Agaist Elsods " +
-     " He is Fuckin Strong Can You Win? " + 
      " You Can Use Heal and Special Attack only once " +
-     " You can GiveUp Any Time MotherFucker "
+     " You can GiveUp Any Time"
      );
   }
 
@@ -53,7 +52,7 @@ checkWin(){
     return true;
   }
   else if(this.PlayerPower <= 0){
-    if(confirm("You Lose Pussy..New Game ?")){
+    if(confirm("You Lose..New Game ?")){
       this.startNewGame() ;
     }else{
       this.fightIsRunning = false ;
@@ -91,7 +90,7 @@ if(this.checkWin()){
 }
    this.monstorAttack();
 }else{
-  alert("only once MotherFucker");
+  alert("only once");
 }
 }
 
@@ -108,7 +107,7 @@ monstorAttack(){
 heal(){
   if(this.healCounter === 0 ){
     if(this.PlayerPower >= 90){
-      alert("You have enough Power MotherFucker");
+      alert("You have enough Power");
     }else{
       this.healCounter++ ;
       this.PlayerPower += 10 ;
@@ -118,13 +117,13 @@ heal(){
       });
     }
   }else if(this.healCounter > 0){
-    alert("only once MotherFucker");
+    alert("only once");
   }
   }
 
 
 giveUp(){
-  alert("YOU GIVE UP YOU LOSE MotherFucker");
+  alert("YOU GIVE UP YOU LOSE");
   this.fightIsRunning = false ;
   this.powerRefactor();
 }
